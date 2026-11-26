@@ -86,11 +86,10 @@ def test_fe03_upload_can_be_cancelled(browser):
     created = httpx.post(f"{BASE}/api/sessions", json={"name": "Cancel E2E"}).json()
     page = _page(browser, created["id"])
     _go(page, "#/upload")
-    cdp = page.context.new_cdp_session(page)
-    cdp.send("Network.enable")
-    cdp.send("Network.emulateNetworkConditions", {
-        "offline": False, "latency": 50, "downloadThroughput": 5_000_000, "uploadThroughput": 40_000,
-    })
+    # Hold the upload request in the browser so it is still in flight when cancelled. Network
+    # throttling is not reliable for loopback traffic, and a fast upload would reach the server.
+    held = []
+    page.route("**/api/sessions/*/files", lambda route: held.append(route) if route.request.method == "POST" else route.continue_())
     with page.expect_file_chooser() as chooser:
         page.get_by_role("button", name=re.compile("Drop audio files here")).click()
     chooser.value.set_files([str(AUDIO / "out_of_phase_stereo.wav")])
@@ -99,7 +98,6 @@ def test_fe03_upload_can_be_cancelled(browser):
     cancel.click()
     expect(page.locator(".toast", has_text="Upload cancelled")).to_be_visible()
     expect(cancel).to_have_count(0)
-    cdp.send("Network.emulateNetworkConditions", {"offline": False, "latency": 0, "downloadThroughput": -1, "uploadThroughput": -1})
     time.sleep(1.5)
     assert _file_names(created["id"]) == []
     httpx.delete(f"{BASE}/api/sessions/{created['id']}")
