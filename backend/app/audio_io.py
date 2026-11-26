@@ -56,6 +56,21 @@ def _sf_info(path: Path) -> dict[str, Any] | None:
         return None
 
 
+def _alac_bit_depth(codec: Any) -> int:
+    """Read the source bit depth from the ALAC magic cookie (extradata).
+
+    Older PyAV releases do not expose ``bits_per_raw_sample``. The cookie holds an
+    ALACSpecificConfig: frameLength(4) compatibleVersion(1) bitDepth(1) ..., optionally
+    wrapped in a 12-byte ``alac`` atom header.
+    """
+    try:
+        extra = bytes(codec.extradata or b"")
+    except Exception:
+        return 0
+    offset = 12 if extra[4:8] == b"alac" else 0
+    return extra[offset + 5] if len(extra) > offset + 5 else 0
+
+
 def _av_info(path: Path) -> dict[str, Any] | None:
     if av is None:
         return None
@@ -77,7 +92,8 @@ def _av_info(path: Path) -> dict[str, Any] | None:
                 "channels": int(stream.channels or codec.channels or 0),
                 "channel_layout": getattr(stream.layout, "name", None) if stream.layout else None,
                 "bit_rate": int(stream.bit_rate) if stream.bit_rate else None,
-                "bits_per_raw_sample": int(codec.bits_per_raw_sample or 0),
+                "bits_per_raw_sample": int(getattr(codec, "bits_per_raw_sample", 0) or 0)
+                or (_alac_bit_depth(codec) if codec.name == "alac" else 0),
                 "duration": duration,
             }
     except Exception:
