@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Runtime data (uploaded originals, analysis artifacts, plots, reports).
+# Anchored to the repository root: a bare "data/" also matched
+# backend/data/test_audio, the reference audio the test suites need.
+/data/
+backend/data/sessions/
+backend/data/tmp/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# AI agent / assistant tooling (local configuration, not part of the project)
+.agents/
+.commandcode/
+.claude/
+.cursor/
+.windsurf/
+.codex/
+.gemini/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+.cursorrules
+.windsurfrules
+
+# Internal audit reports and generated audit/screenshot artefacts (kept locally)
+/docs/audits/
+/docs/ui/
+/frontend/e2e/screenshots/
+# Visual-regression baselines in frontend/e2e/visual-baseline/ ARE tracked (tests need them).
+
+# Environment files
+.env
+.env.*
+!.env.example

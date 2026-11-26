@@ -1,0 +1,162 @@
+{
+  "tolerance_lu": 0.05,
+  "files_compared": 17,
+  "mean_absolute_difference_lu": 0.00325,
+  "worst_absolute_difference_lu": 0.0061,
+  "passed": true,
+  "results": [
+    {
+      "file": "c_major_120bpm.flac",
+      "sample_rate": 44100,
+      "channels": 2,
+      "built_in_lufs": -14.41,
+      "pyloudnorm_lufs": -14.4074,
+      "difference_lu": -0.0026,
+      "within_tolerance": true
+    },
+    {
+      "file": "c_major_120bpm.mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "built_in_lufs": -14.41,
+      "pyloudnorm_lufs": -14.4064,
+      "difference_lu": -0.0036,
+      "within_tolerance": true
+    },
+    {
+      "file": "c_major_120bpm.ogg",
+      "sample_rate": 44100,
+      "channels": 2,
+      "built_in_lufs": -14.39,
+      "pyloudnorm_lufs": -14.3886,
+      "difference_lu": -0.0014,
+      "within_tolerance": true
+    },
+    {
+      "file": "c_major_120bpm.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "built_in_lufs": -14.41,
+      "pyloudnorm_lufs": -14.4074,
+      "difference_lu": -0.0026,
+      "within_tolerance": true
+    },
+    {
+      "file": "c_major_chord.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -12.12,
+      "pyloudnorm_lufs": -12.1183,
+      "difference_lu": -0.0017,
+      "within_tolerance": true
+    },
+    {
+      "file": "click_120bpm.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -21.82,
+      "pyloudnorm_lufs": -21.8193,
+      "difference_lu": -0.0007,
+      "within_tolerance": true
+    },
+    {
+      "file": "clipped_220.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -2.62,
+      "pyloudnorm_lufs": -2.6234,
+      "difference_lu": 0.0034,
+      "within_tolerance": true
+    },
+    {
+      "file": "dc_offset_tone.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -11.01,
+      "pyloudnorm_lufs": -11.0039,
+      "difference_lu": -0.0061,
+      "within_tolerance": true
+    },
+    {
+      "file": "mono_1k.wav",
+      "sample_rate": 44100,
+      "channels": 1,
+      "built_in_lufs": -9.07,
+      "pyloudnorm_lufs": -9.0664,
+      "difference_lu": -0.0036,
+      "within_tolerance": true
+    },
+    {
+      "file": "out_of_phase_stereo.wav",
+      "sample_rate": 48000,
+      "channels": 2,
+      "built_in_lufs": -8.68,
+      "pyloudnorm_lufs": -8.6843,
+      "difference_lu": 0.0043,
+      "within_tolerance": true
+    },
+    {
+      "file": "silence_then_tone.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -11.81,
+      "pyloudnorm_lufs": -11.8046,
+      "difference_lu": -0.0054,
+      "within_tolerance": true
+    },
+    {
+      "file": "sine_1khz_mono_48k.flac",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -9.07,
+      "pyloudnorm_lufs": -9.0656,
+      "difference_lu": -0.0044,
+      "within_tolerance": true
+    },
+    {
+      "file": "sine_1khz_mono_48k.ogg",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -9.0,
+      "pyloudnorm_lufs": -8.9957,
+      "difference_lu": -0.0043,
+      "within_tolerance": true
+    },
+    {
+      "file": "sine_1khz_mono_48k.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -9.07,
+      "pyloudnorm_lufs": -9.0657,
+      "difference_lu": -0.0043,
+      "within_tolerance": true
+    },
+    {
+      "file": "sine_440_stereo.wav",
+      "sample_rate": 48000,
+      "channels": 2,
+      "built_in_lufs": -3.09,
+      "pyloudnorm_lufs": -3.0912,
+      "difference_lu": 0.0012,
+      "within_tolerance": true
+    },
+    {
+      "file": "stereo_tones.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "built_in_lufs": -11.15,
+      "pyloudnorm_lufs": -11.1487,
+      "difference_lu": -0.0013,
+      "within_tolerance": true
+    },
+    {
+      "file": "tone_with_noise_floor.wav",
+      "sample_rate": 48000,
+      "channels": 1,
+      "built_in_lufs": -9.18,
+      "pyloudnorm_lufs": -9.1756,
+      "difference_lu": -0.0044,
+      "within_tolerance": true
+    }
+  ]
+}
